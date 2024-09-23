@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-underscore-dangle, @typescript-eslint/naming-convention
+const __UNSECURE_VAPID_PUBLIC_KEY__ = 'YOUR_VAPID_PUBLIC_KEY_HERE';
+
 export function askPermission() {
   return Notification.requestPermission();
 }
@@ -15,8 +18,7 @@ export async function subscribeUserToPush() {
   const subscribeOptions = {
     userVisibleOnly: true,
     endpoint: '/subscription',
-    applicationServerKey:
-      'BL7ZS10KrRemDU7XhyeNk8FsRQmwzzQ3UwnZxUlHk-EPFNSf0l0SbgcRKSgnkZ4WhcHBx386Gv2kIuXKsFmeny4',
+    applicationServerKey: __UNSECURE_VAPID_PUBLIC_KEY__,
   };
   const subscription =
     await registration.pushManager.subscribe(subscribeOptions);
